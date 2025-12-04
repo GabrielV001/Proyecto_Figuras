@@ -1,3 +1,5 @@
+package Utilidades;
+
 public class Validador {
     public static boolean validarMedidasPositivas(double... medidas) {
         for (double medida : medidas) {

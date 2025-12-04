@@ -1,8 +1,12 @@
+package Figuras;
+
+import Interfaces.Cuerpo;
+
 public class Esfera extends Cuerpo {
     private double radio;
 
     public Esfera(double radio) {
-        super("Esfera");
+        super("Figuras.Esfera");
         this.radio = radio;
     }
 

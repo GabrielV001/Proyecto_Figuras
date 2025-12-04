@@ -1,7 +1,12 @@
+package Utilidades;
+
+import Interfaces.Cuerpo;
+import Interfaces.Figura;
+
 import java.util.ArrayList;
 import java.util.List;
 
-// Clase Coleccion
+// Clase Utilidades.Coleccion
 public class Coleccion {
     private List<Figura> figuras;
     private List<Cuerpo> cuerpos;

@@ -1,3 +1,7 @@
+package DAO;
+
+import Interfaces.Cuerpo;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +15,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
 
     @Override
     public void insertar(Cuerpo cuerpo) throws SQLException {
-        String sql = "INSERT INTO Cuerpo (tipo, volumen) VALUES (?, ?)";
+        String sql = "INSERT INTO Interfaces.Cuerpo (tipo, volumen) VALUES (?, ?)";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, cuerpo.getTipo());
             stmt.setDouble(2, cuerpo.getVolumen());
@@ -36,7 +40,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
 
     @Override
     public void modificar(Cuerpo cuerpo) throws SQLException {
-        String sql = "UPDATE Cuerpo SET tipo = ?, volumen = ? WHERE id = ?";
+        String sql = "UPDATE Interfaces.Cuerpo SET tipo = ?, volumen = ? WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, cuerpo.getTipo());
             stmt.setDouble(2, cuerpo.getVolumen());
@@ -47,7 +51,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
 
     @Override
     public void eliminar(Cuerpo cuerpo) throws SQLException {
-        String sql = "DELETE FROM Cuerpo WHERE id = ?";
+        String sql = "DELETE FROM Interfaces.Cuerpo WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, cuerpo.getId());
             stmt.executeUpdate();
@@ -56,7 +60,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
 
     @Override
     public Cuerpo obtener(int id) throws SQLException {
-        String sql = "SELECT * FROM Cuerpo WHERE id = ?";
+        String sql = "SELECT * FROM Interfaces.Cuerpo WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -100,7 +104,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
     @Override
     public List<Cuerpo> obtenerTodos() throws SQLException {
         List<Cuerpo> cuerpos = new ArrayList<>();
-        String sql = "SELECT * FROM Cuerpo";
+        String sql = "SELECT * FROM Interfaces.Cuerpo";
         try (Statement stmt = conexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
@@ -142,7 +146,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
     @Override
     public List<Cuerpo> buscarPorTipo(String tipo) throws SQLException {
         List<Cuerpo> cuerpos = new ArrayList<>();
-        String sql = "SELECT * FROM Cuerpo WHERE tipo = ?";
+        String sql = "SELECT * FROM Interfaces.Cuerpo WHERE tipo = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, tipo);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -185,7 +189,7 @@ public class CuerpoDAOImpl implements CuerpoDAO {
 
     @Override
     public double obtenerVolumenTotal() throws SQLException {
-        String sql = "SELECT SUM(volumen) as volumen_total FROM Cuerpo";
+        String sql = "SELECT SUM(volumen) as volumen_total FROM Interfaces.Cuerpo";
         try (Statement stmt = conexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             if (rs.next()) {

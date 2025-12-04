@@ -1,3 +1,7 @@
+package Figuras;
+
+import Interfaces.Figura;
+
 public class Triangulo extends Figura {
     private double base;
     private double altura;
@@ -89,7 +93,7 @@ public class Triangulo extends Figura {
     // Sobreescritura del método toString
     @Override
     public String toString() {
-        return "Triangulo{" +
+        return "Figuras.Triangulo{" +
                 "base=" + base +
                 ", altura=" + altura +
                 ", lado1=" + lado1 +

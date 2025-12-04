@@ -1,5 +1,8 @@
+package DAO;
+
+import Interfaces.Forma;
+
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public interface FormaDAO extends DAO<Forma> {

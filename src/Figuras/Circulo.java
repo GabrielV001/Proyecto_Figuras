@@ -1,3 +1,7 @@
+package Figuras;
+
+import Interfaces.Figura;
+
 public class Circulo extends Figura {
     private double radio;
 

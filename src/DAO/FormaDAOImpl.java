@@ -1,8 +1,12 @@
+package DAO;
+
+import Interfaces.Forma;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// FormaDAOImpl.java
+// DAO.FormaDAOImpl.java
 
 
 public class FormaDAOImpl implements FormaDAO {
@@ -14,7 +18,7 @@ public class FormaDAOImpl implements FormaDAO {
 
     @Override
     public void insertar(Forma forma) throws SQLException {
-        String sql = "INSERT INTO Forma (tipo, color) VALUES (?, ?)";
+        String sql = "INSERT INTO Interfaces.Forma (tipo, color) VALUES (?, ?)";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, forma.getTipo());
             stmt.setString(2, forma.getColor());
@@ -39,7 +43,7 @@ public class FormaDAOImpl implements FormaDAO {
 
     @Override
     public void modificar(Forma forma) throws SQLException {
-        String sql = "UPDATE Forma SET tipo = ?, color = ? WHERE id = ?";
+        String sql = "UPDATE Interfaces.Forma SET tipo = ?, color = ? WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, forma.getTipo());
             stmt.setString(2, forma.getColor());
@@ -50,7 +54,7 @@ public class FormaDAOImpl implements FormaDAO {
 
     @Override
     public void eliminar(Forma forma) throws SQLException {
-        String sql = "DELETE FROM Forma WHERE id = ?";
+        String sql = "DELETE FROM Interfaces.Forma WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, forma.getId());
             stmt.executeUpdate();
@@ -59,7 +63,7 @@ public class FormaDAOImpl implements FormaDAO {
 
     @Override
     public Forma obtener(int id) throws SQLException {
-        String sql = "SELECT * FROM Forma WHERE id = ?";
+        String sql = "SELECT * FROM Interfaces.Forma WHERE id = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -110,7 +114,7 @@ public class FormaDAOImpl implements FormaDAO {
     @Override
     public List<Forma> obtenerTodos() throws SQLException {
         List<Forma> formas = new ArrayList<>();
-        String sql = "SELECT * FROM Forma";
+        String sql = "SELECT * FROM Interfaces.Forma";
         try (Statement stmt = conexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
@@ -159,7 +163,7 @@ public class FormaDAOImpl implements FormaDAO {
     @Override
     public List<Forma> buscarPorTipo(String tipo) throws SQLException {
         List<Forma> formas = new ArrayList<>();
-        String sql = "SELECT * FROM Forma WHERE tipo = ?";
+        String sql = "SELECT * FROM Interfaces.Forma WHERE tipo = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, tipo);
             try (ResultSet rs = stmt.executeQuery()) {

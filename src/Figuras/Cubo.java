@@ -1,9 +1,13 @@
+package Figuras;
+
+import Interfaces.Cuerpo;
+
 // Clases de cuerpos
 public class Cubo extends Cuerpo {
     private Cuadrado cara;
 
     public Cubo(double lado) {
-        super("Cubo");
+        super("Figuras.Cubo");
         this.cara = new Cuadrado(lado);
     }
 
@@ -24,7 +28,7 @@ public class Cubo extends Cuerpo {
 
     @Override
     public void imprimirInformacion() {
-        System.out.println("Cubo - Lado: " + cara.base);
+        System.out.println("Figuras.Cubo - Lado: " + cara.base);
         System.out.println("Volumen: " + calcularVolumen());
         System.out.println("Área superficial: " + calcularArea());
     }

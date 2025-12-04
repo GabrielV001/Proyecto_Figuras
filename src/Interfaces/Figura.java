@@ -1,6 +1,8 @@
+package Interfaces;
+
 import java.util.Objects;
 
-// Clase abstracta Figura
+// Clase abstracta Interfaces.Figura
 public abstract class Figura implements Forma {
     protected int id;
     protected String nombre;
@@ -45,7 +47,7 @@ public abstract class Figura implements Forma {
     // Método toString sobreescrito
     @Override
     public String toString() {
-        return "Figura: " + nombre +
+        return "Interfaces.Figura: " + nombre +
                 "\nÁrea: " + String.format("%.2f", calcularArea()) +
                 "\nPerímetro: " + String.format("%.2f", calcularPerimetro());
     }

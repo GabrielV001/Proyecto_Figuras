@@ -1,9 +1,13 @@
+package Figuras;
+
+import Interfaces.Cuerpo;
+
 public class Cilindro extends Cuerpo {
     private Circulo base;
     private Rectangulo cuerpo;
 
     public Cilindro(double radio, double altura) {
-        super("Cilindro");
+        super("Figuras.Cilindro");
         this.base = new Circulo(radio);
         this.cuerpo = new Rectangulo(2 * Math.PI * radio, altura);
     }

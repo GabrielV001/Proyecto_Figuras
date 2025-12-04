@@ -1,8 +1,12 @@
+package Figuras;
+
+import Interfaces.Cuerpo;
+
 public class Tetraedro extends Cuerpo {
     private TrianguloEquilatero cara;
 
     public Tetraedro(double lado) {
-        super("Tetraedro");
+        super("Figuras.Tetraedro");
         this.cara = new TrianguloEquilatero(lado);
     }
 

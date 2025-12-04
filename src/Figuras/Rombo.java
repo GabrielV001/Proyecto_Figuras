@@ -1,3 +1,7 @@
+package Figuras;
+
+import Interfaces.Figura;
+
 // Clases de figuras faltantes
 public class Rombo extends Figura {
     private double diagonal1;

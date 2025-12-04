@@ -1,3 +1,11 @@
+package Usuario;
+
+import DAO.CuerpoDAO;
+import DAO.FormaDAO;
+import Figuras.*;
+import Interfaces.Cuerpo;
+import Interfaces.Forma;
+
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -92,10 +100,10 @@ public class Menu {
     }
 
     private void agregarCuerpo() throws SQLException {
-        System.out.println("\n=== Agregar Cuerpo ===");
-        System.out.println("1. Esfera");
-        System.out.println("2. Cubo");
-        System.out.println("3. Cilindro");
+        System.out.println("\n=== Agregar Interfaces.Cuerpo ===");
+        System.out.println("1. Figuras.Esfera");
+        System.out.println("2. Figuras.Cubo");
+        System.out.println("3. Figuras.Cilindro");
         System.out.print("Seleccione el tipo de cuerpo: ");
 
         int tipo = scanner.nextInt();
@@ -104,24 +112,99 @@ public class Menu {
         Cuerpo nuevoCuerpo = null;
 
         switch (tipo) {
-            case 1: // Esfera
+            case 1: // Figuras.Esfera
                 System.out.print("Ingrese el radio: ");
                 double radio = scanner.nextDouble();
-                nuevoCuerpo = new Esfera(radio);
+                nuevoCuerpo = new Cuerpo(radio) {
+                    @Override
+                    public double calcularVolumen() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularPerimetro() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularArea() {
+                        return 0;
+                    }
+
+                    @Override
+                    public void imprimirInformacion() {
+
+                    }
+
+                    @Override
+                    public String getColor() {
+                        return "";
+                    }
+                };
                 break;
 
-            case 2: // Cubo
+            case 2: // Figuras.Cubo
                 System.out.print("Ingrese el lado: ");
                 double lado = scanner.nextDouble();
-                nuevoCuerpo = new Cubo(lado);
+                nuevoCuerpo = new Cuerpo(lado) {
+                    @Override
+                    public double calcularVolumen() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularPerimetro() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularArea() {
+                        return 0;
+                    }
+
+                    @Override
+                    public void imprimirInformacion() {
+
+                    }
+
+                    @Override
+                    public String getColor() {
+                        return "";
+                    }
+                };
                 break;
 
-            case 3: // Cilindro
+            case 3: // Figuras.Cilindro
                 System.out.print("Ingrese el radio: ");
                 double radioCilindro = scanner.nextDouble();
                 System.out.print("Ingrese la altura: ");
                 double altura = scanner.nextDouble();
-                nuevoCuerpo = new Cilindro(radioCilindro, altura);
+                nuevoCuerpo = new Cuerpo(radioCilindro, altura) {
+                    @Override
+                    public double calcularVolumen() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularPerimetro() {
+                        return 0;
+                    }
+
+                    @Override
+                    public double calcularArea() {
+                        return 0;
+                    }
+
+                    @Override
+                    public void imprimirInformacion() {
+
+                    }
+
+                    @Override
+                    public String getColor() {
+                        return "";
+                    }
+                };
                 break;
 
             default:
@@ -130,11 +213,11 @@ public class Menu {
         }
 
         cuerpoDAO.insertar(nuevoCuerpo);
-        System.out.println("Cuerpo agregado exitosamente");
+        System.out.println("Interfaces.Cuerpo agregado exitosamente");
     }
 
     private void agregarFigura() throws SQLException {
-        System.out.println("\n=== Agregar Figura ===");
+        System.out.println("\n=== Agregar Interfaces.Figura ===");
         System.out.println("1. Círculo");
         System.out.println("2. Rectángulo");
         System.out.println("3. Triángulo");
@@ -176,7 +259,7 @@ public class Menu {
         }
 
         formaDAO.insertar(nuevaFigura);
-        System.out.println("Figura agregada exitosamente");
+        System.out.println("Interfaces.Figura agregada exitosamente");
     }
 
 
@@ -232,7 +315,7 @@ public class Menu {
     }
 
 private void modificarFigura() throws SQLException {
-    System.out.println("\n=== Modificar Figura ===");
+    System.out.println("\n=== Modificar Interfaces.Figura ===");
     List<Forma> figuras = formaDAO.obtenerTodos();
 
     if (figuras.isEmpty()) {
@@ -262,7 +345,7 @@ private void modificarFigura() throws SQLException {
 }
 
 private void modificarCuerpo() throws SQLException {
-    System.out.println("\n=== Modificar Cuerpo ===");
+    System.out.println("\n=== Modificar Interfaces.Cuerpo ===");
     List<Cuerpo> cuerpos = cuerpoDAO.obtenerTodos();
 
     if (cuerpos.isEmpty()) {
@@ -292,7 +375,7 @@ private void modificarCuerpo() throws SQLException {
 }
 
 private void eliminarFigura() throws SQLException {
-    System.out.println("\n=== Eliminar Figura ===");
+    System.out.println("\n=== Eliminar Interfaces.Figura ===");
     List<Forma> figuras = formaDAO.obtenerTodos();
 
     if (figuras.isEmpty()) {
@@ -318,11 +401,11 @@ private void eliminarFigura() throws SQLException {
 
     Forma figuraAEliminar = figuras.get(id - 1);
     formaDAO.eliminar(figuraAEliminar);
-    System.out.println("Figura eliminada exitosamente");
+    System.out.println("Interfaces.Figura eliminada exitosamente");
 }
 
 private void eliminarCuerpo() throws SQLException {
-    System.out.println("\n=== Eliminar Cuerpo ===");
+    System.out.println("\n=== Eliminar Interfaces.Cuerpo ===");
     List<Cuerpo> cuerpos = cuerpoDAO.obtenerTodos();
 
     if (cuerpos.isEmpty()) {
@@ -348,7 +431,7 @@ private void eliminarCuerpo() throws SQLException {
 
     Cuerpo cuerpoAEliminar = cuerpos.get(id - 1);
     cuerpoDAO.eliminar(cuerpoAEliminar);
-    System.out.println("Cuerpo eliminado exitosamente");
+    System.out.println("Interfaces.Cuerpo eliminado exitosamente");
 }
 
     private void cerrarRecursos() {
@@ -403,7 +486,7 @@ private void eliminarCuerpo() throws SQLException {
             public List<Forma> buscarPorTipo(String tipo) throws SQLException {
                 return List.of();
             }
-        }; // Asume que tienes implementada la clase FormaDAO
+        }; // Asume que tienes implementada la clase DAO.FormaDAO
         CuerpoDAO cuerpoDAO = new CuerpoDAO() {
             @Override
             public void insertar(Cuerpo entidad) throws SQLException {
@@ -454,7 +537,7 @@ private void eliminarCuerpo() throws SQLException {
             public double obtenerVolumenTotal() throws SQLException {
                 return 0;
             }
-        }; // Asume que tienes implementada la clase CuerpoDAO
+        }; // Asume que tienes implementada la clase DAO.CuerpoDAO
         Menu menu = new Menu(formaDAO, cuerpoDAO);
         menu.mostrarMenu();
     }

@@ -1,4 +1,8 @@
-// Clase Rectangulo
+package Figuras;
+
+import Interfaces.Figura;
+
+// Clase Figuras.Rectangulo
 public class Rectangulo extends Figura {
     protected double base;
     protected double altura;

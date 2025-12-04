@@ -1,8 +1,16 @@
+package Usuario;
+
+import DAO.CuerpoDAO;
+import DAO.FormaDAO;
+import Interfaces.Cuerpo;
+import Interfaces.Forma;
+import Utilidades.ConexionDB;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-// Main.java
+// Usuario.Main.java
 public class Main {
     public static void main(String[] args) {
         Connection conexion = null;
@@ -11,7 +19,7 @@ public class Main {
             // Establecer la conexión a la base de datos
             conexion = ConexionDB.getConnection();
 
-            // Crear instancias de FormaDAO y CuerpoDAO
+            // Crear instancias de DAO.FormaDAO y DAO.CuerpoDAO
             FormaDAO formaDAO = new FormaDAO() {
                 @Override
                 public void insertar(Forma entidad) throws SQLException {

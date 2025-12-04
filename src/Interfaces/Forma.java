@@ -1,6 +1,6 @@
-import java.util.Objects;
+package Interfaces;
 
-// Interfaz Forma
+// Interfaz Interfaces.Forma
 public interface Forma {
     int getId();
     void setId(int id);

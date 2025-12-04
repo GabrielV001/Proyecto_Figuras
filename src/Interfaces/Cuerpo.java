@@ -1,6 +1,8 @@
+package Interfaces;
+
 import java.util.Objects;
 
-// Clase abstracta Cuerpo
+// Clase abstracta Interfaces.Cuerpo
 public abstract class Cuerpo implements Forma {
     protected int id;
     protected String nombre;
@@ -10,6 +12,12 @@ public abstract class Cuerpo implements Forma {
     }
 
     public Cuerpo(int id, String tipo, double volumen) {
+    }
+
+    public Cuerpo(double radioCilindro, double altura) {
+    }
+
+    public Cuerpo(double radio) {
     }
 
     @Override
@@ -35,7 +43,7 @@ public abstract class Cuerpo implements Forma {
 
     @Override
     public String toString() {
-        return "Cuerpo: " + nombre +
+        return "Interfaces.Cuerpo: " + nombre +
                 "\nVolumen: " + calcularVolumen() +
                 "\nÁrea superficial: " + calcularArea();
     }

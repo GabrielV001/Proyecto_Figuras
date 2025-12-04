@@ -1,8 +1,11 @@
+package DAO;
+
+import Interfaces.Cuerpo;
+
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-// Interface CuerpoDAO
+// Interface DAO.CuerpoDAO
 public interface CuerpoDAO extends DAO<Cuerpo> {
     void modificar(Cuerpo cuerpo) throws SQLException;
 
